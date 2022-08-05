@@ -1,0 +1,17 @@
+https://linuxize.com/post/how-to-install-and-configure-samba-on-centos-7/
+
+https://www.ubackup.com/windows-server/xcopy-copy-only-newer-files.html
+
+ 
+
+robocopy [source] [destination] [[file][ ...]] [options]
+
+ 
+
+C:\Users\Foyez>robocopy  E:\Share_folder\ \\192.168.184.152\users\ /XO
+
+ 
+
+C:\Users\Foyez>robocopy \\192.168.184.152\users\ E:\Share_folder\ /XO
+
+
