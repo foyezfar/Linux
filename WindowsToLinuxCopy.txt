@@ -1,0 +1,26 @@
+https://linuxize.com/post/generate-ssh-keys-on-windows-with-puttygen/
+https://www.a2hosting.com/kb/getting-started-guide/accessing-your-account/transferring-files-using-scp-secure-copy
+https://system.cs.kuleuven.be/cs/system/security/ssh/introduction/putty/doc/Chapter5.html
+
+
+yum install openssh-server
+systemctl start sshd
+systemctl enable sshd
+
+private_key.ppk
+public_key.pub
+
+mkdir -p ~/.ssh
+chmod 0700 ~/.ssh
+vim ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
+
+Windows to Linux 
+=========================
+C:\Program Files\PuTTY> pscp -i "C:\Users\M Hasan\Desktop\Support\private_key.ppk" "C:\Program Files\PuTTY\*" oracle@192.168.184.151:/u01/
+
+
+
+Linux to windows
+==================================
+pscp -i "C:\Users\M Hasan\Desktop\Support\private_key.ppk" root@192.168.184.152:/postgresdb/postgres_backups/* E:\Share_folder

@@ -1,0 +1,16 @@
+$ free -h
+             total       used       free     shared    buffers     cached
+Mem:          5.7G       4.2G       1.5G       206M       231M       2.3G
+-/+ buffers/cache:       1.7G       4.0G
+Swap:         7.5G       304K       7.5G
+
+
+The first three columns seem straightforward: the total capacity, how much of the total is used by processes and how much of the total is free.
+
+The next three columns are a bit more complicated. These are the memory shared among processes, memory that is being used as buffers
+ (temporary storage) by the kernel and as cached for pages.
+ 
+ 
+ 
+References :
+ https://codeyarns.com/tech/2016-06-15-free-command-in-linux.html#gsc.tab=0

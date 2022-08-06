@@ -1,17 +1,73 @@
 https://linuxize.com/post/how-to-install-and-configure-samba-on-centos-7/
-
 https://www.ubackup.com/windows-server/xcopy-copy-only-newer-files.html
-
- 
 
 robocopy [source] [destination] [[file][ ...]] [options]
 
- 
+C:\Users\M Hasan>robocopy  E:\Share_folder\ \\192.168.184.152\users\ /XO
 
-C:\Users\Foyez>robocopy  E:\Share_folder\ \\192.168.184.152\users\ /XO
-
- 
-
-C:\Users\Foyez>robocopy \\192.168.184.152\users\ E:\Share_folder\ /XO
+C:\Users\M Hasan>robocopy \\192.168.184.152\users\ E:\Share_folder\ /XO
 
 
+
+::Copy the files from one directory to another via Robocopy
+robocopy X:\ F:\Rajuk_Backup_Dmp\dpdump /MAXAGE:3
+
+
+::Delete the files as you see fit by changing "-4" to any desired number of days
+forfiles -p X:\ -s -m *.log /D -1 /C "cmd /c del @PATH"
+forfiles -p X:\ -s -m *.sql /D -1 /C "cmd /c del @PATH"
+
+
+Delete older than 7 days.
+===========================================
+forfiles -p D:\Backup\ -s -m *.bak* /D -7 /C "cmd /c del /q @path"
+
+D:\Backup\ – Replace with your path.
+
+-p – The path to search for the files you want to check the date of and remove.
+-s – Recourse subdirectories contained within the path specified using /p and check them as well. Remove if you don’t want to delete files in subdirectories.
+-m – The search mask to be used for the file type you want to check the date on (*.* being all files).
+/d – The date to compare the files. Also can be used (dd/mm/yyyy) a standard date type.
+/c – The command to be used on a file that matches the /m and /d criteria.
+/q – Used within /c to instruct the del command to delete files quietly.
+
+
+
+
+
+https://blog.karatos.in/a?ID=01700-2ca53704-8b90-45f0-ac55-a89688586af6
+
+"rwx" is when run ls -l: readable, writable and executable
+
+chmod 2770, the first 2 is the hidden permission is sgid
+hidden permissions: SUID (4), SGID (2), SBIT (1)
+1: Even if you are not the owner of the file, you can temporarily own the rights of the file owner.
+2. For things created in a directory with this attribute, the group belongs to the group of this directory, not Belongs to the creator himself.
+3. Anything created in the directory with this attribute cannot be deleted except root and the creator.
+
+				Owner Rights (u)	Group Rights (g)	Others Rights (o)
+						7					7					0
+Read 		(4)			
+Write 		(2)			
+Execute 	(1)			
+
+
+
+
+
+
+
+
+https://www.tecmint.com/add-users-in-linux/
+
+sudo useradd -M -d /samba/users -s /usr/sbin/nologin -G sambashare sadmin
+
+'-M' To create users without their home directories
+-d, --home HOME_DIR
+-m, --create-home , Create the user's home directory if it does not exist [...]
+Here '-s' option adds the default shell /bin/bash, but in this case we set login to ‘/usr/sbin/nologin‘. 
+That means user will not able to login into the system.
+-G , adds sadmin user to sambashare group
+
+-a, --append
+    Add the user to the supplementary group(s). Use only with the -G option.

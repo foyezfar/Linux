@@ -1,0 +1,4 @@
+[root@localhost ~]# firewall-cmd --zone=public --add-port=9090/tcp --permanent
+success
+[root@localhost ~]# firewall-cmd --reload
+success

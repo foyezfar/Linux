@@ -1,0 +1,10 @@
+Set secure Linux to permissive by editing the "/etc/selinux/config" file, making sure the SELINUX flag is set as follows.
+
+SELINUX=permissive
+Once the change is complete, restart the server or run the following command.
+
+# setenforce Permissive
+If you have the Linux firewall enabled, you will need to disable or configure it, as shown here or here. To disable it, do the following.
+
+# systemctl stop firewalld
+# systemctl disable firewalld

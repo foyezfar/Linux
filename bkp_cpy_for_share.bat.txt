@@ -1,0 +1,6 @@
+::Copy the files from one directory to another via Robocopy
+::robocopy [source] [destination] [[file][ ...]] [options]
+robocopy "D:\ShareFolder\New folder\" "E:\Share_folder\" /XO
+
+::Delete older than 7 days.
+forfiles -p E:\Share_folder\ -s -m *.sql.gz* /D -7 /C "cmd /c del /q @path"

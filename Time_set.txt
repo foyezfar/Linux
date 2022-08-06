@@ -1,0 +1,4 @@
+[root@localhost ~]# timedatectl list-timezones
+[root@localhost ~]# sudo timedatectl set-timezone Asia/Dhaka
+[root@localhost ~]# timedatectl
+[root@localhost ~]# sudo timedatectl set-ntp true
